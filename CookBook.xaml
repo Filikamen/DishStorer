@@ -1,0 +1,192 @@
+﻿<Window x:Class="DishStorer.CookBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DishStorer"
+        xmlns:UserControls="clr-namespace:DishStorer.View.UserControls"
+        mc:Ignorable="d"
+        Title="CookBook" x:Name="CookBook1" Height="450" Width="800" >
+    <Grid Name="Main" Background="AntiqueWhite">
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Name="Title" Text="Cookbook" Grid.Row="1" FontSize="40" VerticalAlignment="center" HorizontalAlignment="center"/>
+            <Grid Grid.Row="0">
+                <Menu>
+                    <MenuItem Name="SwitchToAccount" Header="Switch to Accounts" FontSize="16" Click="SwitchToPerson_Click"/>
+                </Menu>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="1" Text="Add new dish" HorizontalAlignment="Center" VerticalAlignment="top" FontSize="20" />
+            <UserControls:ClearableTextBox x:Name="NameOfDishToAdd" Placeholder="Name"  Height="20" Width="100" Grid.Column="1" Grid.Row="1"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="DishNameList" Text="Pasta" VerticalAlignment="center" HorizontalAlignment="center" FontSize="20"/>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="28*"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="28*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Breakfast" VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="1" Text="Lunch" VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="2" Text="Dinner" VerticalAlignment="Center"/>
+                <CheckBox x:Name="BreakfastCheckbox" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="51,0,0,0" />
+                <CheckBox x:Name="LunchCheckbox" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="center" />
+                <CheckBox x:Name="DinnerCheckbox" Grid.Column="2" VerticalAlignment="center" HorizontalAlignment="Center"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="DishCarbsList" Text="Carbs:" VerticalAlignment="center" HorizontalAlignment="left" FontSize="15"/>
+            <TextBlock x:Name="DishFatList" Text="Fat:" VerticalAlignment="center" HorizontalAlignment="left" FontSize="15" Grid.Column="1"/>
+            <Button Name="DishClearFilterButton" Grid.Column="4" Height="25" Width="60" Content="Clear Filter" VerticalAlignment="center" Click="DishClearFilterButton_Click"/>
+            <UserControls:ClearableTextBox x:Name="Carbohydrates" Placeholder="Carbohydrates"  Height="20" Width="100" Grid.Column="2"/>
+            <UserControls:ClearableTextBox x:Name="Fat" Placeholder="Fat"  Height="20" Width="100" Grid.Column="3"/>
+
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="DishProteinList" Text="Protein:" VerticalAlignment="center" HorizontalAlignment="left" FontSize="15" Grid.Column="0"/>
+            <TextBlock x:Name="DishCuisineList" Text="Cuisine:" VerticalAlignment="center" HorizontalAlignment="left" FontSize="15" Grid.Column="1"/>
+            <UserControls:ClearableTextBox x:Name="Protein" Placeholder="Protein"  Height="20" Width="100" Grid.Column="2"/>
+            <UserControls:ClearableTextBox x:Name="Cuisine" Placeholder="Cuisine"  Height="20" Width="100" Grid.Column="3"/>
+            <Button Name="DishFilterButton" Grid.Column="4" Height="25" Width="50" Content="Filter" VerticalAlignment="center" Click="DishFilterButton_Click"/>
+            <TextBlock Grid.Column="5" Text="Filter: off" VerticalAlignment="center" FontSize="15"/>
+
+        </Grid>
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="DishBreakfastList" Text="Breakfast:" VerticalAlignment="center" HorizontalAlignment="left" FontSize="15" Grid.Column="0"/>
+                <TextBlock x:Name="DishLunchList" Text="Lunch:" VerticalAlignment="center" HorizontalAlignment="left" FontSize="15" Grid.Column="1"/>
+                <TextBlock x:Name="DishDinnerList" Text="Dinner:" VerticalAlignment="center" HorizontalAlignment="left" FontSize="15" Grid.Column="2"/>
+                
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Name="DishUpdateButton" Grid.Column="0" Height="25" Width="50" Content="Update" VerticalAlignment="center" Click="DishUpdateButton_Click"/>
+                <Button Name="DishAddButton" Grid.Column="1" Height="25" Width="50" Content="Add" VerticalAlignment="center" Click="DishAddButton_Click"/>
+                <CheckBox x:Name="FavoriteCheckBox" Grid.Column="2" VerticalAlignment="center"/>
+                <TextBlock Grid.Column="2" Text="Favorite" VerticalAlignment="center" HorizontalAlignment="center"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <UserControls:ClearableTextBox x:Name="NameOfDishToRemove" Placeholder="Name of dish"  Height="20" Width="80" Grid.Row="1" HorizontalAlignment="center" VerticalAlignment="top"/>
+                <TextBlock Grid.Row="0" Text="Remove a dish" VerticalAlignment="bottom" HorizontalAlignment="center"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Name="DishDeleteButton" Content="Delete" Height="25" Width="50" HorizontalAlignment="Center" Click="DishDeleteButton_Click"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="See all dishes" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Content="&lt;" Grid.Column="1" Height="30" Width="35" Click="GoBackButton_Click"/>
+                <Button Content=">" Grid.Column="2" Height="30" Width="35" Click="GoForwardButton_Click"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+
+</Window>
